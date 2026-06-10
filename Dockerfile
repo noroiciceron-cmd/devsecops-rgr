@@ -16,6 +16,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
 # Этап 2: минимальный финальный образ
 FROM scratch
 
+LABEL org.opencontainers.image.source="https://github.com/noroiciceron-cmd/devsecops-rgr"
+LABEL org.opencontainers.image.description="Simple secure Go application for DevSecOps RGR"
+
 COPY --from=builder /server /server
 
 USER 10001:10001
